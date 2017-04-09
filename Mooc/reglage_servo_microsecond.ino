@@ -3,7 +3,7 @@ Servo myservo;     // créer une variable de type servo
 int nbre = 0;     // Variable pour tester l'angle de rotation du servo
 void setup() {
   Serial.begin(9600); // Initialisation de la liaison série
-  myservo.attach(4);  // Connecter le servo moteur à la broche 4
+  myservo.attach(9);  // Connect le servo moteur à la broche 9
 
 
 }
@@ -13,8 +13,7 @@ void loop() {
     int nbre = Serial.parseInt(); // On place la donnée dans une variable nbre
     // parseInt renvoie le premier nombre entier valide placé dans la mémoire tampon de la liaison série
     Serial.println(nbre);
-    //myservo.writeMicroseconds(nbre); // affecte l'angle de rotation au servo moteur
-    myservo.write(nbre);
+    myservo.writeMicroseconds(nbre); // affecte l'angle de rotation au servo moteur
   }
 
 }
