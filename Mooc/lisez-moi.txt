@@ -1,5 +1,0 @@
-Carte SDIl existe sur les shield ethernet et wifi un emplacement pour placer une carte SD.
-Cette carte permettra soit de stocker des informations, soit de lire des informations.La carte SD doit être formatée en FAT 16 ou FAT 32.On utilise ensuite la librairie SD. 
-Cette librairie est fournie avec un exemple qui convient dans la plupart des cas.Pour utiliser la carte SD, il faut ajouter les bibliothèques :#include <SPI.h>#include <SD.h>Les méthodesConnexion de la carte	SD.begin()Créer un dossier vierge dans la carte SD	SD.mkdir(filename)Supprimer un fichier	SD.remove(filename)
-Écrire dans un fichier de la carte SDFile myFile; // variablemyFile = SD.open("test.txt", FILE_WRITE);if (myFile) {    myFile.println("testing 1, 2, 3.");    myFile.close();  } else {Serial.println("error opening test.txt");  }Lire un fichier de la carte SD
-File myFile; //variablemyFile = SD.open("test.txt");  if (myFile) {    // read from the file until there's nothing else in it:    while (myFile.available()) {      Serial.write(myFile.read());    }        myFile.close();  } else {Serial.println("error opening test.txt");  }
