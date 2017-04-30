@@ -17,6 +17,8 @@ HardwareSerial & dbgSerial = Serial; // serial monitor
 
 #define BUFFER_SIZE 512
 char buffer[BUFFER_SIZE]; //buffer to store incoming messages
+#define _MY_SSID "SSID"
+#define _MY_WIFI_PASSWD "password"
 
 #define pinLED 13
 boolean ledValue = 0; //off by default
@@ -33,7 +35,7 @@ void setup()
     delay(1000);
     sendData("AT+RST\r\n",10000); // reset module
     sendData("AT+CWMODE=1\r\n",2000); // Configure as station
-    sendData("AT+CWJAP=\"MY_WIFI_NETWORK\",\"MY_WIFI_PASSWORD\"\r\n",10000); // connecte à la livebox
+    sendData("AT+CWJAP=\"_MY_SSID\",\"_MY_WIFI_PASSWD\"\r\n",10000); // connecte à la box
     sendData("AT+CIPMUX=1\r\n",2000); // configure for multiple connections
     sendData("AT+CIPSERVER=1,80\r\n",2000); // turn on server on port 80
     pinMode(pinLED, OUTPUT); //define pin as output
